@@ -1,0 +1,14 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.9
+  - conda-forge
+  - scipy
+  - pandas
+  - numpy
+  - numba
+  - statsmodels
+  - metpy
+  - jupyter
+  - scikit-learn
