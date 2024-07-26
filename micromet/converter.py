@@ -8,7 +8,7 @@ import datetime
 
 
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('../secrets/config.ini')
 passwrd = config['DEFAULT']['pw']
 ip = config['DEFAULT']['ip']
 login = config['DEFAULT']['login']
@@ -158,7 +158,7 @@ def dataframe_from_file(file):
         return None
 
 
-def raw_file_compile(raw_fold, station_folder_name):
+def raw_file_compile(raw_fold, station_folder_name, search_str = "*Flux_AmeriFluxFormat*.dat"):
     """
     Compiles raw AmeriFlux datalogger files into a single dataframe.
 
@@ -172,7 +172,7 @@ def raw_file_compile(raw_fold, station_folder_name):
     amflux = {}
     station_folder = raw_fold / station_folder_name
     # iterate through specified folder of raw datalogger files (.dat); Match to AmeriFlux datalogger files
-    for file in station_folder.rglob("*Flux_AmeriFluxFormat*.dat"):
+    for file in station_folder.rglob(search_str):
         # get the base number of the raw ameriflux file
         baseno = file.name.split(".")[0]
 
@@ -270,7 +270,7 @@ class Reformatter(object):
 
     def __init__(self, et_data, drop_soil=True):
         # read in variable limits
-        data_path = pathlib.Path('./flux_network/data/FP_variable_20220810.csv')
+        data_path = pathlib.Path('../data/FP_variable_20220810.csv')
         self.varlimits = pd.read_csv(data_path, index_col='Name')
 
         # fix datetimes
@@ -410,7 +410,8 @@ class Reformatter(object):
         """
         ssitc_columns = ['FC_SSITC_TEST', 'LE_SSITC_TEST', 'ET_SSITC_TEST', 'H_SSITC_TEST', 'TAU_SSITC_TEST']
         for column in ssitc_columns:
-            self.et_data[column] = self.scale_and_convert(self.et_data[column])
+            if column in self.ed_data.columns:
+                self.et_data[column] = self.scale_and_convert(self.et_data[column])
 
     @staticmethod
     def rating(x):
