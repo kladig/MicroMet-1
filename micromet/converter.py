@@ -6,12 +6,14 @@ from sqlalchemy import create_engine
 import configparser
 import datetime
 
-
-config = configparser.ConfigParser()
-config.read('../secrets/config.ini')
-passwrd = config['DEFAULT']['pw']
-ip = config['DEFAULT']['ip']
-login = config['DEFAULT']['login']
+try:
+    config = configparser.ConfigParser()
+    config.read('../secrets/config.ini')
+    passwrd = config['DEFAULT']['pw']
+    ip = config['DEFAULT']['ip']
+    login = config['DEFAULT']['login']
+except KeyError:
+    print('credentials needed')
 
 default = ['TIMESTAMP_START',
            'TIMESTAMP_END',
@@ -270,9 +272,12 @@ class Reformatter(object):
 
     def __init__(self, et_data, drop_soil=True):
         # read in variable limits
-        data_path = pathlib.Path('../data/FP_variable_20220810.csv')
-        self.varlimits = pd.read_csv(data_path, index_col='Name')
-
+        try:
+            data_path = pathlib.Path('../data/FP_variable_20220810.csv')
+            self.varlimits = pd.read_csv(data_path, index_col='Name')
+        except FileNotFoundError:
+            data_path = pathlib.Path('/content/drive/Shareddrives/UGS_Flux/Data_Processing/Jupyter_Notebooks/Micromet/data/FP_variable_20220810.csv')
+            self.varlimits = pd.read_csv(data_path, index_col='Name')
         # fix datetimes
         self.et_data = self.datefixer(et_data)
 
@@ -410,7 +415,7 @@ class Reformatter(object):
         """
         ssitc_columns = ['FC_SSITC_TEST', 'LE_SSITC_TEST', 'ET_SSITC_TEST', 'H_SSITC_TEST', 'TAU_SSITC_TEST']
         for column in ssitc_columns:
-            if column in self.ed_data.columns:
+            if column in self.et_data.columns:
                 self.et_data[column] = self.scale_and_convert(self.et_data[column])
 
     @staticmethod
