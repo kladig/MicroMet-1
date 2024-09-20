@@ -76,28 +76,50 @@ default = ['TIMESTAMP_START',
            'LW_OUT',
            'P']
 
-math_soils = ["VWC_5cm_N_Avg","VWC_5cm_S_Avg","Ka_5cm_N_Avg","T_5cm_N_Avg","BulkEC_5cm_N_Avg","VWC_10cm_N_Avg","Ka_10cm_N_Avg","T_10cm_N_Avg","BulkEC_10cm_N_Avg","VWC_20cm_N_Avg","Ka_20cm_N_Avg","T_20cm_N_Avg","BulkEC_20cm_N_Avg","VWC_30cm_N_Avg","Ka_30cm_N_Avg","T_30cm_N_Avg","BulkEC_30cm_N_Avg","VWC_40cm_N_Avg","Ka_40cm_N_Avg","T_40cm_N_Avg","BulkEC_40cm_N_Avg","VWC_50cm_N_Avg","Ka_50cm_N_Avg","T_50cm_N_Avg","BulkEC_50cm_N_Avg","VWC_60cm_N_Avg","Ka_60cm_N_Avg","T_60cm_N_Avg","BulkEC_60cm_N_Avg","VWC_75cm_N_Avg","Ka_75cm_N_Avg","T_75cm_N_Avg","BulkEC_75cm_N_Avg","VWC_100cm_N_Avg","Ka_100cm_N_Avg","T_100cm_N_Avg","BulkEC_100cm_N_Avg","Ka_5cm_S_Avg","T_5cm_S_Avg","BulkEC_5cm_S_Avg","VWC_10cm_S_Avg","Ka_10cm_S_Avg","T_10cm_S_Avg","BulkEC_10cm_S_Avg","VWC_20cm_S_Avg","Ka_20cm_S_Avg","T_20cm_S_Avg","BulkEC_20cm_S_Avg","VWC_30cm_S_Avg","Ka_30cm_S_Avg","T_30cm_S_Avg","BulkEC_30cm_S_Avg","VWC_40cm_S_Avg","Ka_40cm_S_Avg","T_40cm_S_Avg","BulkEC_40cm_S_Avg","VWC_50cm_S_Avg","Ka_50cm_S_Avg","T_50cm_S_Avg","BulkEC_50cm_S_Avg","VWC_60cm_S_Avg","Ka_60cm_S_Avg","T_60cm_S_Avg","BulkEC_60cm_S_Avg","VWC_75cm_S_Avg","Ka_75cm_S_Avg","T_75cm_S_Avg","BulkEC_75cm_S_Avg","VWC_100cm_S_Avg","Ka_100cm_S_Avg","T_100cm_S_Avg"]
+math_soils = ["VWC_5cm_N_Avg", "VWC_5cm_S_Avg", "Ka_5cm_N_Avg", "T_5cm_N_Avg", "BulkEC_5cm_N_Avg", "VWC_10cm_N_Avg",
+              "Ka_10cm_N_Avg", "T_10cm_N_Avg", "BulkEC_10cm_N_Avg", "VWC_20cm_N_Avg", "Ka_20cm_N_Avg", "T_20cm_N_Avg",
+              "BulkEC_20cm_N_Avg", "VWC_30cm_N_Avg", "Ka_30cm_N_Avg", "T_30cm_N_Avg", "BulkEC_30cm_N_Avg",
+              "VWC_40cm_N_Avg", "Ka_40cm_N_Avg", "T_40cm_N_Avg", "BulkEC_40cm_N_Avg", "VWC_50cm_N_Avg", "Ka_50cm_N_Avg",
+              "T_50cm_N_Avg", "BulkEC_50cm_N_Avg", "VWC_60cm_N_Avg", "Ka_60cm_N_Avg", "T_60cm_N_Avg",
+              "BulkEC_60cm_N_Avg", "VWC_75cm_N_Avg", "Ka_75cm_N_Avg", "T_75cm_N_Avg", "BulkEC_75cm_N_Avg",
+              "VWC_100cm_N_Avg", "Ka_100cm_N_Avg", "T_100cm_N_Avg", "BulkEC_100cm_N_Avg", "Ka_5cm_S_Avg", "T_5cm_S_Avg",
+              "BulkEC_5cm_S_Avg", "VWC_10cm_S_Avg", "Ka_10cm_S_Avg", "T_10cm_S_Avg", "BulkEC_10cm_S_Avg",
+              "VWC_20cm_S_Avg", "Ka_20cm_S_Avg", "T_20cm_S_Avg", "BulkEC_20cm_S_Avg", "VWC_30cm_S_Avg", "Ka_30cm_S_Avg",
+              "T_30cm_S_Avg", "BulkEC_30cm_S_Avg", "VWC_40cm_S_Avg", "Ka_40cm_S_Avg", "T_40cm_S_Avg",
+              "BulkEC_40cm_S_Avg", "VWC_50cm_S_Avg", "Ka_50cm_S_Avg", "T_50cm_S_Avg", "BulkEC_50cm_S_Avg",
+              "VWC_60cm_S_Avg", "Ka_60cm_S_Avg", "T_60cm_S_Avg", "BulkEC_60cm_S_Avg", "VWC_75cm_S_Avg", "Ka_75cm_S_Avg",
+              "T_75cm_S_Avg", "BulkEC_75cm_S_Avg", "VWC_100cm_S_Avg", "Ka_100cm_S_Avg", "T_100cm_S_Avg"]
 
-math_soils_v2 = ["SWC_3_1_1","SWC_4_1_1","K_3_1_1","TS_3_1_1","EC_3_1_1","SWC_3_2_1","K_3_2_1","TS_3_2_1","EC_3_2_1","SWC_3_3_1","K_3_3_1","TS_3_3_1","EC_3_3_1","SWC_3_4_1","K_3_4_1","TS_3_4_1","EC_3_4_1","SWC_3_5_1","K_3_5_1","TS_3_5_1","EC_3_5_1","SWC_3_6_1","K_3_6_1","TS_3_6_1","EC_3_6_1","SWC_3_7_1","K_3_7_1","TS_3_7_1","EC_3_7_1","SWC_3_8_1","K_3_8_1","TS_3_8_1","EC_3_8_1","SWC_3_9_1","K_3_9_1","TS_3_9_1","EC_3_9_1","K_4_1_1","TS_4_1_1","EC_4_1_1","SWC_4_2_1","K_4_2_1","TS_4_2_1","EC_4_2_1","SWC_4_3_1","K_4_3_1","TS_4_3_1","EC_4_3_1","SWC_4_4_1","K_4_4_1","TS_4_4_1","EC_4_4_1","SWC_4_5_1","K_4_5_1","TS_4_5_1","EC_4_5_1","SWC_4_6_1","K_4_6_1","TS_4_6_1","EC_4_6_1","SWC_4_7_1","K_4_7_1","TS_4_7_1","EC_4_7_1","SWC_4_8_1","K_4_8_1","TS_4_8_1","EC_4_8_1","EC_4_9_1","SWC_4_9_1","K_4_9_1","TS_4_9_1","TS_1_1_1","TS_2_1_1","SWC_1_1_1","SWC_2_1_1"]
+math_soils_v2 = ["SWC_3_1_1", "SWC_4_1_1", "K_3_1_1", "TS_3_1_1", "EC_3_1_1", "SWC_3_2_1", "K_3_2_1", "TS_3_2_1",
+                 "EC_3_2_1", "SWC_3_3_1", "K_3_3_1", "TS_3_3_1", "EC_3_3_1", "SWC_3_4_1", "K_3_4_1", "TS_3_4_1",
+                 "EC_3_4_1", "SWC_3_5_1", "K_3_5_1", "TS_3_5_1", "EC_3_5_1", "SWC_3_6_1", "K_3_6_1", "TS_3_6_1",
+                 "EC_3_6_1", "SWC_3_7_1", "K_3_7_1", "TS_3_7_1", "EC_3_7_1", "SWC_3_8_1", "K_3_8_1", "TS_3_8_1",
+                 "EC_3_8_1", "SWC_3_9_1", "K_3_9_1", "TS_3_9_1", "EC_3_9_1", "K_4_1_1", "TS_4_1_1", "EC_4_1_1",
+                 "SWC_4_2_1", "K_4_2_1", "TS_4_2_1", "EC_4_2_1", "SWC_4_3_1", "K_4_3_1", "TS_4_3_1", "EC_4_3_1",
+                 "SWC_4_4_1", "K_4_4_1", "TS_4_4_1", "EC_4_4_1", "SWC_4_5_1", "K_4_5_1", "TS_4_5_1", "EC_4_5_1",
+                 "SWC_4_6_1", "K_4_6_1", "TS_4_6_1", "EC_4_6_1", "SWC_4_7_1", "K_4_7_1", "TS_4_7_1", "EC_4_7_1",
+                 "SWC_4_8_1", "K_4_8_1", "TS_4_8_1", "EC_4_8_1", "EC_4_9_1", "SWC_4_9_1", "K_4_9_1", "TS_4_9_1",
+                 "TS_1_1_1", "TS_2_1_1", "SWC_1_1_1", "SWC_2_1_1"]
 
-well_soils =["SWC_3_1_1","SWC_4_1_1","K_3_1_1","TS_3_1_1","EC_3_1_1",
-             "SWC_3_2_1","K_3_2_1","TS_3_2_1","EC_3_2_1",
-             "SWC_3_3_1","K_3_3_1","TS_3_3_1","EC_3_3_1",
-             "SWC_3_4_1","K_3_4_1","TS_3_4_1","EC_3_4_1",
-             "SWC_3_5_1","K_3_5_1","TS_3_5_1","EC_3_5_1",
-             "SWC_3_6_1","K_3_6_1","TS_3_6_1","EC_3_6_1",
-             "SWC_3_7_1","K_3_7_1","TS_3_7_1","EC_3_7_1",
-             "SWC_3_8_1","K_3_8_1","TS_3_8_1","EC_3_8_1",
-             "SWC_3_9_1","K_3_9_1","TS_3_9_1","EC_3_9_1",]
+well_soils = ["SWC_3_1_1", "SWC_4_1_1", "K_3_1_1", "TS_3_1_1", "EC_3_1_1",
+              "SWC_3_2_1", "K_3_2_1", "TS_3_2_1", "EC_3_2_1",
+              "SWC_3_3_1", "K_3_3_1", "TS_3_3_1", "EC_3_3_1",
+              "SWC_3_4_1", "K_3_4_1", "TS_3_4_1", "EC_3_4_1",
+              "SWC_3_5_1", "K_3_5_1", "TS_3_5_1", "EC_3_5_1",
+              "SWC_3_6_1", "K_3_6_1", "TS_3_6_1", "EC_3_6_1",
+              "SWC_3_7_1", "K_3_7_1", "TS_3_7_1", "EC_3_7_1",
+              "SWC_3_8_1", "K_3_8_1", "TS_3_8_1", "EC_3_8_1",
+              "SWC_3_9_1", "K_3_9_1", "TS_3_9_1", "EC_3_9_1", ]
 
-bflat = list(filter(lambda item: item not in('TA_1_1_4','TS_1_1_2','SWC_1_1_2'),default))
-wellington = list(filter(lambda item: item not in('TS_1_1_1'),default))
+bflat = list(filter(lambda item: item not in ('TA_1_1_4', 'TS_1_1_2', 'SWC_1_1_2'), default))
+wellington = list(filter(lambda item: item not in ('TS_1_1_1'), default))
 big_math = wellington[:-10] + math_soils + wellington[-10:] + ['T_CANOPY']
 big_math_v2 = wellington[:-10] + math_soils_v2 + wellington[-7:] + ['T_CANOPY']
-big_math_v2_filt = list(filter(lambda item: item not in('TA_1_1_4'),big_math_v2))
+big_math_v2_filt = list(filter(lambda item: item not in ('TA_1_1_4'), big_math_v2))
 
-big_well = list(filter(lambda item: item not in('TA_1_1_4'),default)) + well_soils
-header_dict = {60:default, 57:bflat, 59:wellington, 96:big_well, 131:big_math, 132:big_math_v2_filt}
+big_well = list(filter(lambda item: item not in ('TA_1_1_4'), default)) + well_soils
+header_dict = {60: default, 57: bflat, 59: wellington, 96: big_well, 131: big_math, 132: big_math_v2_filt}
+
 
 def check_header(csv_file):
     """
@@ -142,13 +164,13 @@ def dataframe_from_file(file):
             df = pd.read_csv(file, na_values=['-9999', 'NAN', 'NaN'])
         elif check_header(file) == 2:
 
-            df = pd.read_csv(file, na_values=['-9999', 'NAN', 'NaN'], skiprows=[0,2,3])
+            df = pd.read_csv(file, na_values=['-9999', 'NAN', 'NaN'], skiprows=[0, 2, 3])
             print(file)
             if "TIMESTAMP" in df.columns:
                 df.drop(['TIMESTAMP'], axis=1, inplace=True)
         else:
             # count the number of columns in the first row of headerless data
-            first_line = pd.read_csv(file, header=None, nrows=1,na_values=['-9999', 'NAN', 'NaN'])
+            first_line = pd.read_csv(file, header=None, nrows=1, na_values=['-9999', 'NAN', 'NaN'])
             fll = len(first_line.columns)
             # match header count (key) to key in dictionary
             header = header_dict[fll]
@@ -160,7 +182,7 @@ def dataframe_from_file(file):
         return None
 
 
-def raw_file_compile(raw_fold, station_folder_name, search_str = "*Flux_AmeriFluxFormat*.dat"):
+def raw_file_compile(raw_fold, station_folder_name, search_str="*Flux_AmeriFluxFormat*.dat"):
     """
     Compiles raw AmeriFlux datalogger files into a single dataframe.
 
@@ -197,6 +219,7 @@ def raw_file_compile(raw_fold, station_folder_name, search_str = "*Flux_AmeriFlu
         et_data = None
     return et_data
 
+
 def remove_extra_soil_params(df):
     """
     Removes extra soil parameters from the given dataframe.
@@ -212,14 +235,14 @@ def remove_extra_soil_params(df):
         main_var = collist[0]
 
         # get rid of columns that don't follow the typical pattern
-        if len(collist) > 3 and collist[2] not in ['N','S']:
+        if len(collist) > 3 and collist[2] not in ['N', 'S']:
             depth_var = int(collist[2])
-            if main_var in ['SWC','TS','EC','K'] and (depth_var >= 1 and int(collist[1]) >= 3):
+            if main_var in ['SWC', 'TS', 'EC', 'K'] and (depth_var >= 1 and int(collist[1]) >= 3):
                 df.drop(col, axis=1, inplace=True)
         # drop cols from a specified list math_soils_v2
         elif col in math_soils_v2[:-4]:
             df.drop(col, axis=1, inplace=True)
-        elif main_var in ['VWC','Ka'] or 'cm_N' in col or 'cm_S' in col:
+        elif main_var in ['VWC', 'Ka'] or 'cm_N' in col or 'cm_S' in col:
             df.drop(col, axis=1, inplace=True)
     return df
 
@@ -246,11 +269,11 @@ class Reformatter(object):
     # dictionary to fix naming convention issues with EasyFluxDL;
     # https://ameriflux.lbl.gov/wp-content/uploads/2015/10/AmeriFlux_DataVariables.pdf
     col_name_match = {"TA_1_1_2": "TA_1_2_1",
-                           "RH_1_1_2": "RH_1_2_1",
-                           "T_DP_1_1_2": "T_DP_1_2_1",
-                           "TA_1_1_3": "TA_1_3_1",
-                           "RH_1_1_3": "RH_1_3_1",
-                           "T_DP_1_1_3": "T_DP_1_3_1",
+                      "RH_1_1_2": "RH_1_2_1",
+                      "T_DP_1_1_2": "T_DP_1_2_1",
+                      "TA_1_1_3": "TA_1_3_1",
+                      "RH_1_1_3": "RH_1_3_1",
+                      "T_DP_1_1_3": "T_DP_1_3_1",
                       "TA_2_1_1": "TA_1_2_1",
                       "RH_2_1_1": "RH_1_2_1",
                       "T_DP_2_1_1": "T_DP_1_2_1",
@@ -258,17 +281,17 @@ class Reformatter(object):
                       "RH_3_1_1": "RH_1_3_1",
                       "TA_1_1_4": "TA_1_4_1",
                       "T_DP_3_1_1": "T_DP_1_3_1",
-                           "PBLH": "PBLH_F",
-                           "TS_1_1_2": "TS_2_1_1",
-                           "SWC_1_1_2": "SWC_2_1_1"}
+                      "PBLH": "PBLH_F",
+                      "TS_1_1_2": "TS_2_1_1",
+                      "SWC_1_1_2": "SWC_2_1_1"}
 
     # Variables to despike
     despikey = ['CO2', 'H2O', 'FC', 'LE', 'ET', 'H', 'G', 'SG', 'FETCH_MAX', 'FETCH_90', 'FETCH_55', 'FETCH_40',
-                     'WS',
-                     'USTAR', 'TAU', 'MO_LENGTH', 'U', 'V', 'W', 'PA', 'TA_1_1_1', 'RH_1_1_1', 'T_DP_1_1_1',
-                     'TA_1_2_1', 'RH_1_2_1', 'T_DP_1_2_1', 'TA_1_3_1', 'RH_1_3_1', 'T_DP_1_3_1', 'VPD', 'T_SONIC',
-                     'PBLH', 'TS_1_1_1', 'TS_2_1_1', 'SWC_1_1_1', 'SWC_2_1_1', 'ALB', 'NETRAD', 'SW_IN', 'SW_OUT',
-                     'LW_IN', 'LW_OUT']
+                'WS',
+                'USTAR', 'TAU', 'MO_LENGTH', 'U', 'V', 'W', 'PA', 'TA_1_1_1', 'RH_1_1_1', 'T_DP_1_1_1',
+                'TA_1_2_1', 'RH_1_2_1', 'T_DP_1_2_1', 'TA_1_3_1', 'RH_1_3_1', 'T_DP_1_3_1', 'VPD', 'T_SONIC',
+                'PBLH', 'TS_1_1_1', 'TS_2_1_1', 'SWC_1_1_1', 'SWC_2_1_1', 'ALB', 'NETRAD', 'SW_IN', 'SW_OUT',
+                'LW_IN', 'LW_OUT']
 
     def __init__(self, et_data, drop_soil=True):
         # read in variable limits
@@ -276,7 +299,8 @@ class Reformatter(object):
             data_path = pathlib.Path('../data/FP_variable_20220810.csv')
             self.varlimits = pd.read_csv(data_path, index_col='Name')
         except FileNotFoundError:
-            data_path = pathlib.Path('/content/drive/Shareddrives/UGS_Flux/Data_Processing/Jupyter_Notebooks/Micromet/data/FP_variable_20220810.csv')
+            data_path = pathlib.Path(
+                '/content/drive/Shareddrives/UGS_Flux/Data_Processing/Jupyter_Notebooks/Micromet/data/FP_variable_20220810.csv')
             self.varlimits = pd.read_csv(data_path, index_col='Name')
         # fix datetimes
         self.et_data = self.datefixer(et_data)
@@ -319,8 +343,6 @@ class Reformatter(object):
                 self.et_data[col] = self.et_data[col].astype(np.int8)
             else:
                 self.et_data[col] = self.et_data[col].astype(np.float32)
-
-
 
     def datefixer(self, et_data):
         """
@@ -366,7 +388,7 @@ class Reformatter(object):
         et_data = et_data[~et_data.index.duplicated(keep='first')]
 
         # eliminate implausible dates that are set in the future
-        et_data = et_data[et_data.index<=datetime.datetime.today()+pd.Timedelta(days=1)]
+        et_data = et_data[et_data.index <= datetime.datetime.today() + pd.Timedelta(days=1)]
 
         # fix time offsets to harmonize sample frequency to 30 min
         et_data = et_data.resample('15min').asfreq().interpolate(method='linear', limit=2).resample(
@@ -416,7 +438,8 @@ class Reformatter(object):
         ssitc_columns = ['FC_SSITC_TEST', 'LE_SSITC_TEST', 'ET_SSITC_TEST', 'H_SSITC_TEST', 'TAU_SSITC_TEST']
         for column in ssitc_columns:
             if column in self.et_data.columns:
-                self.et_data[column] = self.scale_and_convert(self.et_data[column])
+                if (self.et_data[column] > 3).any() > 2:
+                    self.et_data[column] = self.scale_and_convert(self.et_data[column])
 
     @staticmethod
     def rating(x):
@@ -439,7 +462,6 @@ class Reformatter(object):
         else:
             x = 2
         return x
-
 
     def _extract_variable_name(self, variable):
         """
@@ -497,7 +519,6 @@ class Reformatter(object):
             df = self.replace_out_of_range_with_nan(df, variable, replace_w)
         return df
 
-
     def despike(self, arr, nstd: float = 4.5):
         """Removes spikes from an array of values based on a specified deviation from the mean.
 
@@ -542,6 +563,7 @@ class Reformatter(object):
         for col in self.et_data.columns:
             if "SWC" in col and self.et_data[col].max() < 1.5:
                 self.et_data.loc[self.et_data[col] > -9999, col] *= 100
+
     def timestamp_reset(self):
         self.et_data['TIMESTAMP_START'] = self.et_data.index
         self.et_data['TIMESTAMP_END'] = self.et_data.index + pd.Timedelta(minutes=30)
@@ -575,39 +597,35 @@ class Reformatter(object):
         return np_remove_outliers
 
 
+main_header_part = ['TIMESTAMP_START', 'TIMESTAMP_END', 'CO2', 'CO2_SIGMA', 'H2O', 'H2O_SIGMA', 'FC', 'FC_SSITC_TEST',
+                    'LE',
+                    'LE_SSITC_TEST', 'ET', 'ET_SSITC_TEST', 'H', 'H_SSITC_TEST', 'G', 'SG', 'FETCH_MAX', 'FETCH_90',
+                    'FETCH_55',
+                    'FETCH_40', 'WD', 'WS', 'WS_MAX', 'USTAR', 'ZL', 'TAU', 'TAU_SSITC_TEST', 'MO_LENGTH', 'U',
+                    'U_SIGMA', 'V',
+                    'V_SIGMA', 'W', 'W_SIGMA', 'PA', 'TA_1_1_1', 'RH_1_1_1', 'T_DP_1_1_1', ]
 
-
-
-
-main_header_part = ['TIMESTAMP_START','TIMESTAMP_END','CO2','CO2_SIGMA','H2O','H2O_SIGMA','FC','FC_SSITC_TEST','LE',
-                   'LE_SSITC_TEST','ET','ET_SSITC_TEST','H','H_SSITC_TEST','G','SG','FETCH_MAX','FETCH_90','FETCH_55',
-                   'FETCH_40','WD','WS','WS_MAX','USTAR','ZL','TAU','TAU_SSITC_TEST','MO_LENGTH','U','U_SIGMA','V',
-                   'V_SIGMA','W','W_SIGMA','PA','TA_1_1_1','RH_1_1_1','T_DP_1_1_1',]
-
-
-bet_part = ['TA_1_2_1','RH_1_2_1','T_DP_1_2_1',
-                   'TA_1_3_1','RH_1_3_1','T_DP_1_3_1','VPD','T_SONIC','T_SONIC_SIGMA','PBLH','TS_1_1_1','SWC_1_1_1',
-                   'ALB','NETRAD','SW_IN','SW_OUT','LW_IN','LW_OUT','P']
+bet_part = ['TA_1_2_1', 'RH_1_2_1', 'T_DP_1_2_1',
+            'TA_1_3_1', 'RH_1_3_1', 'T_DP_1_3_1', 'VPD', 'T_SONIC', 'T_SONIC_SIGMA', 'PBLH', 'TS_1_1_1', 'SWC_1_1_1',
+            'ALB', 'NETRAD', 'SW_IN', 'SW_OUT', 'LW_IN', 'LW_OUT', 'P']
 bet_header = main_header_part + bet_part
 
-met_headers = ["TIMESTAMP_START","TIMESTAMP_END","CO2","CO2_SIGMA","H2O","H2O_SIGMA","FC","FC_SSITC_TEST","LE",
-           "LE_SSITC_TEST","ET","ET_SSITC_TEST","H","H_SSITC_TEST","G","SG","FETCH_MAX","FETCH_90","FETCH_55",
-           "FETCH_40","WD","WS","WS_MAX","USTAR","ZL","TAU","TAU_SSITC_TEST","MO_LENGTH","U","U_SIGMA","V",
-           "V_SIGMA","W","W_SIGMA","PA","TA_1_1_1","RH_1_1_1","T_DP_1_1_1","TA_1_1_2","RH_1_1_2","T_DP_1_1_2",
-           "TA_1_1_3","RH_1_1_3","T_DP_1_1_3","VPD","T_SONIC","T_SONIC_SIGMA","PBLH","TS_1_1_1","TS_1_1_2",
-           "SWC_1_1_1","SWC_1_1_2","ALB","NETRAD","SW_IN","SW_OUT","LW_IN","LW_OUT","P"]
+met_headers = ["TIMESTAMP_START", "TIMESTAMP_END", "CO2", "CO2_SIGMA", "H2O", "H2O_SIGMA", "FC", "FC_SSITC_TEST", "LE",
+               "LE_SSITC_TEST", "ET", "ET_SSITC_TEST", "H", "H_SSITC_TEST", "G", "SG", "FETCH_MAX", "FETCH_90",
+               "FETCH_55",
+               "FETCH_40", "WD", "WS", "WS_MAX", "USTAR", "ZL", "TAU", "TAU_SSITC_TEST", "MO_LENGTH", "U", "U_SIGMA",
+               "V",
+               "V_SIGMA", "W", "W_SIGMA", "PA", "TA_1_1_1", "RH_1_1_1", "T_DP_1_1_1", "TA_1_1_2", "RH_1_1_2",
+               "T_DP_1_1_2",
+               "TA_1_1_3", "RH_1_1_3", "T_DP_1_1_3", "VPD", "T_SONIC", "T_SONIC_SIGMA", "PBLH", "TS_1_1_1", "TS_1_1_2",
+               "SWC_1_1_1", "SWC_1_1_2", "ALB", "NETRAD", "SW_IN", "SW_OUT", "LW_IN", "LW_OUT", "P"]
 
-
-
-
-
-bet_spikey = ['CO2','H2O','FC','LE', 'ET','H','G','SG','FETCH_MAX','FETCH_90','FETCH_55','FETCH_40','WS','USTAR',
-          'TAU','MO_LENGTH','U','V','W','PA','TA_1_1_1','RH_1_1_1','T_DP_1_1_1',
-          'TA_1_2_1','RH_1_2_1','T_DP_1_2_1','TA_1_3_1','RH_1_3_1','T_DP_1_3_1','VPD','T_SONIC','T_SONIC_SIGMA',
-          'PBLH_F','TS_1_1_1','SWC_1_1_1','ALB','NETRAD','SW_IN','SW_OUT','LW_IN','LW_OUT']
-
-
-
+bet_spikey = ['CO2', 'H2O', 'FC', 'LE', 'ET', 'H', 'G', 'SG', 'FETCH_MAX', 'FETCH_90', 'FETCH_55', 'FETCH_40', 'WS',
+              'USTAR',
+              'TAU', 'MO_LENGTH', 'U', 'V', 'W', 'PA', 'TA_1_1_1', 'RH_1_1_1', 'T_DP_1_1_1',
+              'TA_1_2_1', 'RH_1_2_1', 'T_DP_1_2_1', 'TA_1_3_1', 'RH_1_3_1', 'T_DP_1_3_1', 'VPD', 'T_SONIC',
+              'T_SONIC_SIGMA',
+              'PBLH_F', 'TS_1_1_1', 'SWC_1_1_1', 'ALB', 'NETRAD', 'SW_IN', 'SW_OUT', 'LW_IN', 'LW_OUT']
 
 
 def load_data():
