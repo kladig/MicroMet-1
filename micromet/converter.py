@@ -1,3 +1,5 @@
+# Written By Kat Ladig and Paul Inkenbrandt
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -158,29 +160,39 @@ def dataframe_from_file(file):
 
     """
     try:
+        na_vals = ['-9999', 'NAN', 'NaN','nan']
         # check to see if a header is present, if not, assign one using the header_dict dictionary
         if check_header(file) == 1:
 
-            df = pd.read_csv(file, na_values=['-9999', 'NAN', 'NaN'])
+            df = pd.read_csv(file, na_values=na_vals)
         elif check_header(file) == 2:
 
-            df = pd.read_csv(file, na_values=['-9999', 'NAN', 'NaN'], skiprows=[0, 2, 3])
+            df = pd.read_csv(file, na_values=na_vals, skiprows=[0, 2, 3])
             print(file)
             if "TIMESTAMP" in df.columns:
                 df.drop(['TIMESTAMP'], axis=1, inplace=True)
         else:
             # count the number of columns in the first row of headerless data
-            first_line = pd.read_csv(file, header=None, nrows=1, na_values=['-9999', 'NAN', 'NaN'])
+            first_line = pd.read_csv(file, header=None, nrows=1, na_values=na_vals)
             fll = len(first_line.columns)
             # match header count (key) to key in dictionary
             header = header_dict[fll]
-            df = pd.read_csv(file, na_values=['-9999', 'NAN', 'NaN'], names=header)
+            df = pd.read_csv(file, na_values=na_vals, names=header)
         return df
     # If no header match is found, an exception occurs
     except Exception as e:
         print(f'Encountered an error with file {file}: {str(e)}')
         return None
 
+def is_int(element: any) -> bool:
+    #If you expect None to be passed:
+    if element is None:
+        return False
+    try:
+        int(element)
+        return True
+    except ValueError:
+        return False
 
 def raw_file_compile(raw_fold, station_folder_name, search_str="*Flux_AmeriFluxFormat*.dat"):
     """
@@ -202,8 +214,12 @@ def raw_file_compile(raw_fold, station_folder_name, search_str="*Flux_AmeriFluxF
 
         if baseno.split("_")[-1][0] == 'A':
             file_number = 9999
-        else:
+        elif baseno.split("_")[-1][0] == '(':
+            file_number = 9999
+        elif is_int(baseno.split("_")[-1]):
             file_number = int(baseno.split("_")[-1])
+        else:
+            file_number = 9999
         if file_number >= 0:
             df = dataframe_from_file(file)
             if df is not None:
@@ -293,15 +309,23 @@ class Reformatter(object):
                 'PBLH', 'TS_1_1_1', 'TS_2_1_1', 'SWC_1_1_1', 'SWC_2_1_1', 'ALB', 'NETRAD', 'SW_IN', 'SW_OUT',
                 'LW_IN', 'LW_OUT']
 
-    def __init__(self, et_data, drop_soil=True):
+    def __init__(self, et_data, drop_soil=True, data_path = None):
         # read in variable limits
-        try:
-            data_path = pathlib.Path('../data/FP_variable_20220810.csv')
-            self.varlimits = pd.read_csv(data_path, index_col='Name')
-        except FileNotFoundError:
-            data_path = pathlib.Path(
-                '/content/drive/Shareddrives/UGS_Flux/Data_Processing/Jupyter_Notebooks/Micromet/data/FP_variable_20220810.csv')
-            self.varlimits = pd.read_csv(data_path, index_col='Name')
+        if data_path is None:
+            try:
+                data_path = pathlib.Path('../data/FP_variable_20220810.csv')
+                self.varlimits = pd.read_csv(data_path, index_col='Name')
+            except FileNotFoundError:
+                try:
+                    data_path = pathlib.Path('data/FP_variable_20220810.csv')
+                    self.varlimits = pd.read_csv(data_path, index_col='Name')
+                except FileNotFoundError:
+                    data_path = pathlib.Path(
+                        '/content/drive/Shareddrives/UGS_Flux/Data_Processing/Jupyter_Notebooks/Micromet/data/FP_variable_20220810.csv')
+                    self.varlimits = pd.read_csv(data_path, index_col='Name')
+        else:
+            data_path = pathlib.Path(data_path)
+
         # fix datetimes
         self.et_data = self.datefixer(et_data)
 
@@ -536,7 +560,7 @@ class Reformatter(object):
         stdd = np.nanstd(arr) * nstd
         avg = np.nanmean(arr)
         avgdiff = stdd - np.abs(arr - avg)
-        y = np.where(avgdiff >= 0, arr, np.NaN)
+        y = np.where(avgdiff >= 0, arr, np.nan)
         nans, x = np.isnan(y), lambda z: z.nonzero()[0]
         #if len(x(~nans)) > 0:
         #    y[nans] = np.interp(x(nans), x(~nans), y[~nans])

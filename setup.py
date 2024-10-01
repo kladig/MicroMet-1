@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="Micromet",
+    name="micromet",
     version="0.2.0",
     author="Paul Inkenbrant",
     author_email="paulinkenbrandt@utah.gov",

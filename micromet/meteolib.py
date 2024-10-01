@@ -30,7 +30,6 @@ Function descriptions
 # Load relevant python functions
 
 import math  # import math library
-
 import numpy as np
 import scipy  # import scientific python functions
 
@@ -212,6 +211,61 @@ def ea_calc(airtemp=scipy.array([]), rh=scipy.array([])):
 
 
 def calc_sat_vapor_press_ice(temperature):
+    """
+    Calculate the saturation vapor pressure over ice.
+
+    This function computes the saturation vapor pressure over ice
+    for a given temperature using the Goff-Gratch equation (1946).
+
+    Parameters:
+    -----------
+    temperature : float
+        Air temperature in degrees Celsius.
+
+    Returns:
+    --------
+    float
+        Saturation vapor pressure over ice in hectopascals (hPa).
+
+    Notes:
+    ------
+    - This function uses the Goff-Gratch equation for ice, which is considered
+      one of the most accurate formulations for saturation vapor pressure over ice.
+    - The equation is valid for temperatures below 0°C (273.15 K).
+    - The function does not include any error handling for temperatures above freezing.
+      For temperatures above 0°C, consider using a function for saturation vapor pressure
+      over liquid water instead.
+
+    Formula:
+    --------
+    The Goff-Gratch equation for ice used in this function is:
+
+    log10(ei) = -9.09718 * (273.16/T - 1)
+                - 3.56654 * log10(273.16/T)
+                + 0.876793 * (1 - T/273.16)
+                + log10(6.1071)
+
+    where:
+    - ei is the saturation vapor pressure over ice in hPa
+    - T is the absolute temperature in Kelvin
+
+    Example:
+    --------
+    >>> calc_sat_vapor_press_ice(-10)
+    2.5989  # Example output, actual value may differ slightly
+
+    References:
+    -----------
+    Goff, J. A., and S. Gratch (1946) Low-pressure properties of water from -160 to
+    212 F. Transactions of the American Society of Heating and Ventilating Engineers,
+    pp 95-122, presented at the 52nd annual meeting of the American Society of Heating
+    and Ventilating Engineers, New York, 1946.
+
+    See Also:
+    ---------
+    calc_sat_vapor_press_water : Function to calculate saturation vapor pressure over liquid water
+    """
+    # Function implementation...
     log_pi = - 9.09718 * (273.16 / (temperature + 273.15) - 1.0) \
              - 3.56654 * math.log10(273.16 / (temperature + 273.15)) \
              + 0.876793 * (1.0 - (temperature + 273.15) / 273.16) \
@@ -220,6 +274,62 @@ def calc_sat_vapor_press_ice(temperature):
 
 
 def calc_sat_vapor_press_water(temperature):
+    """
+    Calculate the saturation vapor pressure over liquid water.
+
+    This function computes the saturation vapor pressure over liquid water
+    for a given temperature using the Goff-Gratch equation (1946).
+
+    Parameters:
+    -----------
+    temperature : float
+        Air temperature in degrees Celsius.
+
+    Returns:
+    --------
+    float
+        Saturation vapor pressure over liquid water in hectopascals (hPa).
+
+    Notes:
+    ------
+    - This function uses the Goff-Gratch equation, which is considered one of the most
+      accurate formulations for saturation vapor pressure over liquid water.
+    - The equation is valid for temperatures above 0°C (273.15 K).
+    - The function does not include any error handling for temperatures below freezing.
+      For temperatures below 0°C, consider using a function for saturation vapor pressure
+      over ice instead.
+
+    Formula:
+    --------
+    The Goff-Gratch equation used in this function is:
+
+    log10(ew) = 10.79574 * (1 - 273.16/T)
+                - 5.02800 * log10(T/273.16)
+                + 1.50475E-4 * (1 - 10^(-8.2969 * (T/273.16 - 1)))
+                + 0.42873E-3 * (10^(4.76955 * (1 - 273.16/T)) - 1)
+                + 0.78614
+
+    where:
+    - ew is the saturation vapor pressure in hPa
+    - T is the absolute temperature in Kelvin
+
+    Example:
+    --------
+    >>> calc_sat_vapor_press_water(20)
+    23.3855  # Example output, actual value may differ slightly
+
+    References:
+    -----------
+    Goff, J. A., and S. Gratch (1946) Low-pressure properties of water from -160 to
+    212 F. Transactions of the American Society of Heating and Ventilating Engineers,
+    pp 95-122, presented at the 52nd annual meeting of the American Society of Heating
+    and Ventilating Engineers, New York, 1946.
+
+    See Also:
+    ---------
+    calc_sat_vapor_press_ice : Function to calculate saturation vapor pressure over ice
+    """
+
     log_pw = 10.79574 * (1.0 - 273.16 / (temperature + 273.15)) \
              - 5.02800 * math.log10((temperature + 273.15) / 273.16) \
              + 1.50475E-4 * (1 - math.pow(10, (-8.2969 \
@@ -230,6 +340,52 @@ def calc_sat_vapor_press_water(temperature):
 
 
 def es_calc(airtemp=scipy.array([])):
+    """
+    Calculate saturation vapor pressure based on air temperature.
+
+    This function computes the saturation vapor pressure for given air temperature(s).
+    It handles both single values and arrays, and uses different calculation methods
+    for temperatures above and below freezing.
+
+    Parameters:
+    -----------
+    airtemp : array_like or float, optional
+        Air temperature in degrees Celsius. Can be a single value or an array.
+        Default is an empty SciPy array.
+
+    Returns:
+    --------
+    saturation_vapour_pressure : ndarray or float
+        Saturation vapor pressure in Pascals (Pa). The shape of the output matches
+        the input: a single value for a single input, or an array for array input.
+
+    Notes:
+    ------
+    - For temperatures below 0°C, saturation vapor pressure over ice is calculated.
+    - For temperatures at or above 0°C, saturation vapor pressure over water is calculated.
+    - The function uses helper functions `calc_sat_vapor_press_ice` and
+      `calc_sat_vapor_press_water` (not shown in the provided code).
+    - Input is converted to an array using `convert_to_array` function (not provided).
+    - Output is converted from hectopascals (hPa) to pascals (Pa).
+
+    Examples:
+    ---------
+    >>> es_calc(25)
+    3169.2  # Example output, actual value may differ
+
+    >>> es_calc([0, 10, 20, 30])
+    array([611.2, 1228.1, 2339.3, 4246.0])  # Example output, actual values may differ
+
+    Raises:
+    -------
+    TypeError
+        If input cannot be converted to a numeric type.
+
+    See Also:
+    ---------
+    calc_sat_vapor_press_ice : Function to calculate saturation vapor pressure over ice
+    calc_sat_vapor_press_water : Function to calculate saturation vapor pressure over water
+    """
     airtemp = convert_to_array(airtemp)
     n = scipy.size(airtemp)
 
@@ -564,5 +720,4 @@ if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
-    print
-    'Ran all tests...'
+    print('Ran all tests...')

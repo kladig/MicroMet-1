@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "micromet"
-version = "0.1.0"
+version = "0.2.0"
 description = "A microclimate analysis tool"
 authors = [
     { name = "Paul Inkenbrandt", email = "paulinkenbrandt@utah.gov" }
 ]
 license = { text = "MIT" }
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 
 [project.dependencies]
 pandas = "^1.2.0"
@@ -24,6 +24,7 @@ scikit-learn = "^1.4.0"
 plotly = "^5.0.0"
 fluxdataqaqc = "^0.1.0"
 pingouin = "^0.5.4"
+sqlalchemy = "^2.0.0"
 
 [project.optional-dependencies]
 dev = [

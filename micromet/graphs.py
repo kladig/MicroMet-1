@@ -1,8 +1,64 @@
 import plotly.graph_objects as go
-
 import pandas as pd
 
 def energy_sankey(df, date_text="2024-06-19 12:00"):
+    """
+    Create a Sankey diagram representing the energy balance for a specific date and time.
+
+    This function generates a Sankey diagram to visualize the flow of energy in a system,
+    typically used in meteorological or environmental studies. It calculates various
+    energy balance components and creates a diagram showing their relationships.
+
+    Parameters:
+    -----------
+    df : pandas.DataFrame
+        A DataFrame containing time series data with columns for different energy
+        components (SW_IN, LW_IN, SW_OUT, LW_OUT, NETRAD, G, LE, H).
+    date_text : str, optional
+        A string representing the date and time for which to create the diagram.
+        Default is "2024-06-19 12:00".
+
+    Returns:
+    --------
+    plotly.graph_objs._figure.Figure
+        A Plotly Figure object containing the Sankey diagram.
+
+    Notes:
+    ------
+    - The function assumes that the DataFrame index is a DatetimeIndex.
+    - Energy balance components are extracted from the DataFrame for the specified date.
+    - The energy balance ratio (EBR) is calculated as (H + LE) / (NETRAD - G).
+    - The residual term is calculated as NETRAD - (G + H + LE).
+    - The Sankey diagram visualizes the flow of energy between different components.
+
+    Energy Balance Components:
+    --------------------------
+    - SW_IN: Incoming Shortwave Radiation
+    - LW_IN: Incoming Longwave Radiation
+    - SW_OUT: Outgoing Shortwave Radiation
+    - LW_OUT: Outgoing Longwave Radiation
+    - NETRAD: Net Radiation
+    - G: Ground Heat Flux
+    - LE: Latent Heat
+    - H: Sensible Heat
+
+    Example:
+    --------
+    >>> import pandas as pd
+    >>> import plotly.graph_objs
+    >>> # Assume 'df' is a properly formatted DataFrame with energy balance data
+    >>> fig = energy_sankey(df, "2024-06-19 12:00")
+    >>> fig.show()
+
+    Dependencies:
+    -------------
+    - pandas
+    - plotly.graph_objs
+
+    See Also:
+    ---------
+    plotly.graph_objs.Sankey : For more information on creating Sankey diagrams with Plotly
+    """
     select_date = pd.to_datetime(date_text)
     swi = df.loc[select_date, "SW_IN"]
     lwi = df.loc[select_date, "LW_IN"]

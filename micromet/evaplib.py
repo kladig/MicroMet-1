@@ -29,7 +29,6 @@ __version__ = "1.0"
 __date__ = "November 2014"
 
 import scipy
-
 import meteolib
 
 
