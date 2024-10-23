@@ -462,7 +462,7 @@ class Reformatter(object):
         ssitc_columns = ['FC_SSITC_TEST', 'LE_SSITC_TEST', 'ET_SSITC_TEST', 'H_SSITC_TEST', 'TAU_SSITC_TEST']
         for column in ssitc_columns:
             if column in self.et_data.columns:
-                if (self.et_data[column] > 3).any() > 2:
+                if (self.et_data[column] > 3).any():
                     self.et_data[column] = self.scale_and_convert(self.et_data[column])
 
     @staticmethod
@@ -479,7 +479,7 @@ class Reformatter(object):
         three rating categories. For values less than or equal to 3, the method returns 0. For values
         between 4 and 6 (inclusive), the method returns 1. For all other values, the method returns 2.
         """
-        if x <= 3:
+        if 0 <= x <= 3:
             x = 0
         elif 4 <= x <= 6:
             x = 1
@@ -656,6 +656,14 @@ def load_data():
     df = pd.read_csv('./data/FP_variable_20220810.csv')
     return df
 
+def outfile(df, stationname, out_dir):
+    """Generates a file name based on the ameriflux file nameing standards
+
+    """
+    first_index = pd.to_datetime(df['TIMESTAMP_START'][0], format ='%Y%m%d%H%M')
+    last_index = pd.to_datetime(df['TIMESTAMP_END'][-1], format ='%Y%m%d%H%M')#df.index[-1], format ='%Y%m%d%H%M')
+    filename = stationname + f"HH{first_index.strftime('%Y%m%d%H%M')}_{last_index.strftime('%Y%m%d%H%M')}.csv" #{last_index_plus_30min.strftime('%Y%m%d%H%M')}.csv"
+    df.to_csv(out_dir + stationname + "/" + filename)
 
 if __name__ == '__main__':
     data = load_data()

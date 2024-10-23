@@ -1,5 +1,7 @@
 import plotly.graph_objects as go
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 def energy_sankey(df, date_text="2024-06-19 12:00"):
     """
@@ -118,3 +120,19 @@ def energy_sankey(df, date_text="2024-06-19 12:00"):
     # Show the figure
     # fig.show()
     return fig
+
+def bland_altman_plot(data1, data2, *args, **kwargs):
+    data1     = np.asarray(data1)
+    data2     = np.asarray(data2)
+    mean      = np.mean([data1, data2], axis=0)
+    diff      = data1 - data2                   # Difference between data1 and data2
+    md        = np.mean(diff)                   # Mean of the difference
+    sd        = np.std(diff, axis=0)            # Standard deviation of the difference
+    CI_low    = md - 1.96*sd
+    CI_high   = md + 1.96*sd
+
+    plt.scatter(mean, diff, *args, **kwargs)
+    plt.axhline(md,           color='black', linestyle='-')
+    plt.axhline(md + 1.96*sd, color='gray', linestyle='--')
+    plt.axhline(md - 1.96*sd, color='gray', linestyle='--')
+    return md, sd, mean, CI_low, CI_high
